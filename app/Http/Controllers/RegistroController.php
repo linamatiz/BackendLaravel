@@ -25,13 +25,14 @@ class RegistroController extends Controller
             $user->save();
     
             return response()->json([
-                'message' => 'Registro exitoso'],
-                Response::HTTP_CREATED
-            );
+                'message' => 'Registro exitoso',
+                'estatus' => '200'
+            ]);
         } catch (\Exception $e) {
             return response()->json([
-                'message' => 'Error al registrar usuario'],
-                Response::HTTP_INTERNAL_SERVER_ERROR);
+                'message' => 'Error al registrar usuario',
+                'estatus' => '400'
+            ]);
         }
     
     }

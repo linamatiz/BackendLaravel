@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\PerfilController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/inicio-sesion', [LoginController::class, 'login'])->name('inicio-sesion');
 Route::post('/create',[RegistroController::class, 'registrar'])->name('create');
+Route::get('/perfil',[PerfilController::class, 'perfilUsuario'])->name('perfilUsuario');
+

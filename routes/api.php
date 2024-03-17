@@ -24,6 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/inicio-sesion', [LoginController::class, 'login'])->name('inicio-sesion');
+Route::get('/cerrarSesion', [LoginController::class, 'cerrarSesion'])->name('cerrarSesion');
 Route::post('/create',[RegistroController::class, 'registrar'])->name('create');
 Route::get('/perfil',[PerfilController::class, 'perfilUsuario'])->name('perfilUsuario');
+Route::post('/actualizarUsuario',[PerfilController::class, 'actualizarUsuario'])->name('actualizarUsuario');
+
 

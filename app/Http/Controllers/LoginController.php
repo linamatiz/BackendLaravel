@@ -23,18 +23,21 @@ class LoginController extends Controller {
             ]);
         }else {
             return response()->json([
-                'message' => 'Credenciales inválidas',
+                'message' => 'Usuario y/o contraseñas invalidas',
                 'estatus' => '401'
             ]);
         }
     }
 
-    public function logout(Request $request) {
+    public function cerrarSesion(Request $request) {
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return response()->json([
+            'message' => 'Sesion cerrada',
+            'estatus' => '200'
+        ]);
     }
 }
